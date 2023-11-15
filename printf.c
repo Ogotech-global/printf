@@ -38,6 +38,10 @@ int _printf(const char *format, ...)
 					str_len++;
 				write(1, str, str_len), character_print += str_len;
 			}
+			else if (*format == 'd' || *format == 'i')
+				int n = va_arg (argument_list, int);
+				write(1, &n, 1 );
+
 			else
 				write(1, "%", 1), write(1, format, 1), character_print += 2;
 		}
