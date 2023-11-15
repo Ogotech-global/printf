@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 			else if (*format == 'd' || *format == 'i')
 				int n = va_arg(argument_list, int);
 
-				write(1, &n, 1);
+				write(1, &n, 1), character_print++;
 			else
 				write(1, "%", 1), write(1, format, 1), character_print += 2;
 		}
