@@ -37,6 +37,21 @@ int _printf(const char *format, ...)
 				while (str[str_len] != '\0')
 					str_len++;
 				write(1, str, str_len), character_print += str_len;
+			{
+			int num = va_arg(argument_list, int);
+			int num_digits = 0, int temp = num;
+
+			while (temp != 0)
+			{
+			temp /= 10;
+			num_digits++;
+			}
+			while (num_digits > 0)
+			{
+			int divisor = power(10, --num_digits), int digit = num / divisor + '0';
+
+			write(1, &digit, 1), character_print++;
+			num %= divisor;
 			}
 			else
 				write(1, "%", 1), write(1, format, 1), character_print += 2;

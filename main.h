@@ -46,6 +46,10 @@ int printf_string(va_list val);
 int _strlen(char *str);
 int _strlenc(const char *str);
 int print_37(void);
-int print_number(int n);
+int print_numbern(int n);
+int print_char(va_list args);
+int print_string(va_list args);
+int print_number(va_list args);
+int power(int base, int exponent);
 
 #endif
