@@ -26,11 +26,11 @@ int print_int(va_list types, char buffer[],
         int flags, int width, int precision, int size);
 int print_binary(va_list types, char buffer[],
         int flags, int width, int precision, int size);
-int printable(char c);
-int add_hexa_code(char ascii_code, char buffer[], int i);
+int is_printable(char c);
+int append_hexa_code(char ascii_code, char buffer[], int i);
 int is_digit(char c);
-long int convert_num_size(long int n, int size);
-long int typecast_unsgndint_size(unsigned long int n, int size);
+long int convert_size_number(long int num, int size);
+long int convert_size_unsgnd(unsigned long int num, int size);
 int write_char(char c, char buffer[],
         int flags, int width, int precision, int size);
 int write_number(int is_negative, int ind, char buffer[],
@@ -62,13 +62,7 @@ int print_reverse(va_list types, char buffer[],
 int print_rot13string(va_list types, char buffer[],
         int flags, int width, int precision, int size);
 int delegate_print(const char *fmt, int *ind, va_list args, char buffer[],
-	int flags, int width, int precision, int size);
-unsigned long int convert_unsigned(unsigned long int n, int size);
-unsigned long int convert_size_unsgnd(unsigned long int num, int size);
-long int convert_size_number(long int num, int size);
-
-
-
+		int flags, int width, int precision, int size);
 
 #endif
 

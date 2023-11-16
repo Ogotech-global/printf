@@ -3,44 +3,38 @@
 
 /************************* PRINT UNSIGNED NUMBER *************************/
 /**
- * print_unsigned - Prints an unsigned number.
- *
- * @types: List of arguments.
- * @buffer: Array to handle the printed output.
- * @flags: Active flag calculations.
- * @width: Width specifier.
- * @precision: Precision specification.
- * @size: Size specifier.
- *
- * Return: The number of characters printed.
+ * print_unsigned - Prints an unsigned number
+ * @types: List a of arguments
+ * @buffer: Buffer array to handle print
+ * @flags:  Calculates active flags
+ * @width: get width
+ * @precision: Precision specification
+ * @size: Size specifier
+ * Return: Number of chars printed.
  */
-
 int print_unsigned(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int i = 1022;
-	unsigned long int n = va_arg(types, unsigned long int);
+	unsigned long int num = va_arg(types, unsigned long int);
 
-	/* Assuming convert_unsigned is the correct function name */
-	n = convert_unsigned(n, size);
+	num = convert_size_unsgnd(num, size);
 
-	if (!n)
+	if (!num)
 		buffer[i--] = '0';
 
 	buffer[1023] = '\0';
-	
-	while (n > 0)
+
+	while (num > 0)
 	{
-		buffer[i--] = (n % 10) + '0';
-		n /= 10;
+		buffer[i--] = (num % 10) + '0';
+		num /= 10;
 	}
 
 	i++;
 
-	/* Assuming write_unsigned is the correct function name */
 	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }
-
 
 /************* PRINT UNSIGNED NUMBER IN OCTAL  ****************/
 /**
